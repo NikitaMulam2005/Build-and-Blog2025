@@ -1,7 +1,9 @@
 # backend/web/sockets.py
-from fastapi import WebSocket, WebSocketDisconnect
-from typing import Dict
+
 import logging
+from typing import Dict
+from fastapi import WebSocket, WebSocketDisconnect
+import asyncio
 
 from graph import create_graph
 
@@ -23,32 +25,36 @@ class ConnectionManager:
 
     async def send_text(self, message: str, session_id: str):
         ws = self.active_connections.get(session_id)
-        if ws:
-            await ws.send_text(message)
+        if ws and message.strip():
+            try:
+                await ws.send_text(message)
+            except:
+                self.disconnect(session_id)
 
-
-# Global manager instance
 manager = ConnectionManager()
 
-
 async def process_message(raw_message: str, session_id: str):
-    """
-    Core function: runs the LangGraph and streams final_response back
-    Called from routes.py
-    """
+    """Fixed version — handles bool, None, and missing keys safely"""
     try:
         async for event in graph.astream_events(
             input={"raw_message": raw_message, "session_id": session_id},
             version="v2",
         ):
-            # Only send the final user-facing response
-            if (
-                event["event"] == "on_chain_end"
-                and "final_response" in event["data"]["output"]
-            ):
-                response = event["data"]["output"]["final_response"]
-                await manager.send_text(response, session_id)
-                return
+            # SAFELY extract final_response — this is the key fix
+            data_output = event.get("data", {}).get("output", {})
+            
+            # data_output can be bool, str, None, or dict — handle ALL cases
+            if isinstance(data_output, dict) and "final_response" in data_output:
+                response = data_output["final_response"]
+                if response and isinstance(response, str):
+                    await manager.send_text(response, session_id)
+                    return
+
+        # If no final_response found → send fallback
+        await manager.send_text(
+            "I'm having trouble responding right now. Please try again in a moment.",
+            session_id
+        )
 
     except Exception as e:
         logger.error(f"Graph error for {session_id[:8]}: {e}")

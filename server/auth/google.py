@@ -24,7 +24,7 @@ fake_users_db: dict = {}
 @router.get("/login/google")
 async def login_google():
     """Redirect user to Google login"""
-    redirect_uri = f"{os.getenv('PUBLIC_URL', 'http://localhost:8000')}/auth/google/callback"
+    redirect_uri = f"{os.getenv('http://localhost:8000')}/auth/google/callback"
     google_auth_url = (
         "https://accounts.google.com/o/oauth2/v2/auth?"
         "response_type=code&"
@@ -71,7 +71,7 @@ async def google_callback(code: str):
         access_token = create_access_token(data={"sub": email})
 
         # Redirect to web app with token
-        frontend_url = os.getenv("FRONTEND_URL", "http://localhost:3000")
+        frontend_url = os.getenv("http://localhost:3000")
         return RedirectResponse(f"{frontend_url}?token={access_token}")
 
     except ValueError as e:

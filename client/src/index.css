@@ -2,3 +2,128 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme overrides for improved dark/light modes */
+.theme-dark body {
+	background-color: #071021;
+	color: #e6eef8;
+}
+.theme-dark .bg-white {
+	background-color: #0b1220 !important;
+	color: #e6eef8 !important;
+}
+.theme-dark .bg-gray-100 {
+	background-color: #0b1220 !important;
+}
+.theme-dark .text-gray-600 {
+	color: #cbd5e1 !important;
+}
+.theme-dark .text-gray-900 {
+	color: #e6eef8 !important;
+}
+.theme-dark .text-gray-400 {
+	color: #94a3b8 !important;
+}
+.theme-dark .border-gray-100 {
+	border-color: #1f2937 !important;
+}
+.theme-dark .shadow-md {
+	box-shadow: 0 10px 20px rgba(2,6,23,0.6) !important;
+}
+.theme-dark a {
+	color: #93c5fd !important;
+}
+
+/* Make small badge elements (like language pills) visible in dark mode */
+.theme-dark .bg-gray-100 {
+	background-color: rgba(255,255,255,0.04) !important;
+	color: #e6eef8 !important;
+	border: 1px solid rgba(255,255,255,0.06) !important;
+}
+.theme-dark .text-gray-700 {
+	color: #dbeeff !important;
+}
+
+/* Improve visibility of selectable language buttons / cards in dark mode */
+.theme-dark .grid button,
+.theme-dark .grid .px-3,
+.theme-dark .rounded-xl.border-2 {
+	border-color: rgba(255,255,255,0.06) !important;
+	background-color: rgba(255,255,255,0.02) !important;
+	color: #e6eef8 !important;
+}
+.theme-dark .rounded-xl.border-2:hover {
+	background-color: rgba(255,255,255,0.04) !important;
+}
+
+/* Selected language: make it stand out with stronger blue and glow */
+.theme-dark .border-blue-600 {
+	border-color: #60a5fa !important;
+}
+.theme-dark .bg-blue-50 {
+	background-color: rgba(96,165,250,0.15) !important;
+	color: #e6eef8 !important;
+}
+.theme-dark .shadow-md {
+	box-shadow: 0 8px 20px rgba(96,165,250,0.12) !important;
+}
+
+/* Selected language button specific override - increase visibility and ensure it wins in dark mode */
+.theme-dark .grid button.bg-blue-50 {
+	background-color: rgba(96,165,250,0.28) !important;
+	border-color: #60a5fa !important;
+	color: #e6eef8 !important;
+	box-shadow: 0 10px 30px rgba(96,165,250,0.22) !important;
+}
+.theme-dark .grid button.bg-blue-50 .text-sm {
+	color: #f1f9ff !important;
+}
+.theme-dark .grid button:active,
+.theme-dark .grid button.bg-blue-50:active {
+	transform: translateY(1px) !important;
+}
+
+/* Make input fields and outlines clearer */
+.theme-dark input,
+.theme-dark textarea,
+.theme-dark .relative input {
+	background-color: #071326 !important;
+	color: #e6eef8 !important;
+	border-color: rgba(255,255,255,0.06) !important;
+}
+
+/* Light high-contrast tweaks */
+.theme-light .bg-white {
+	background-color: #ffffff !important;
+	color: #0f1724 !important;
+}
+.theme-light .text-gray-600 {
+	color: #475569 !important;
+}
+
+/* Large text mode */
+.theme-large {
+	font-size: 1.125rem;
+}
+.theme-large h1,
+.theme-large h2,
+.theme-large h3 {
+	line-height: 1.15;
+}
+
+/* Ensure the top navigation is readable in dark mode */
+.theme-dark nav,
+.theme-dark nav[role="navigation"] {
+	background-color: #071021 !important;
+	color: #e6eef8 !important;
+	backdrop-filter: none !important;
+}
+.theme-dark nav .text-gray-900,
+.theme-dark nav span,
+.theme-dark nav a,
+.theme-dark nav button {
+	color: #dbeeff !important;
+}
+.theme-dark .border-gray-200 {
+	border-color: #172033 !important;
+}
+
