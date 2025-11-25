@@ -1,7 +1,9 @@
 
-🌍 Refugee First – 72-Hour Support Agent
+---
 
-*A Multilingual WhatsApp + Web AI for Humanitarian Support*
+# 🌍 Refugee First – 72-Hour Support Agent
+
+### *A Multilingual WhatsApp + Web AI for Humanitarian Support*
 
 ![Static Badge](https://img.shields.io/badge/Project-Humanitarian-blue)
 ![Static Badge](https://img.shields.io/badge/AI-LangGraph%20%7C%20RAG%20%7C%20VertexAI-green)
@@ -9,8 +11,9 @@
 ![Static Badge](https://img.shields.io/badge/Status-Active%20Development-yellow)
 ![Static Badge](https://img.shields.io/badge/License-Humanitarian%20Use%20Only-red)
 
+---
 
-📑 Table of Contents
+## 📑 Table of Contents
 
 * [Overview](#-overview)
 * [Key Features](#-key-features)
@@ -24,8 +27,9 @@
 * [Contributing](#-contributing)
 * [License](#-license)
 
+---
 
-🌟 Overview
+## 🌟 Overview
 
 **Refugee First – 72 Hour Support Agent** is a multilingual AI assistant designed to guide refugees during the **critical first 72 hours** after arriving in a new city.
 
@@ -39,17 +43,19 @@ It provides:
 
 All without automating government or legal processes.
 
-🚀 Key Features
+---
 
-🔹 1. Multilingual Support
+## 🚀 Key Features
+
+### 🔹 1. Multilingual Support
 
 Arabic • Farsi • Hindi • Urdu • English • French • Ukrainian
 
-🔹 2. WhatsApp + Web Chat
+### 🔹 2. WhatsApp + Web Chat
 
 Communicate instantly using either interface.
 
-🔹 3. Local Aid Retrieval
+### 🔹 3. Local Aid Retrieval
 
 Find nearby:
 
@@ -57,7 +63,7 @@ Find nearby:
 * Food banks
 * Emergency centers
 
-🔹 4. Safe AI System
+### 🔹 4. Safe AI System
 
 Uses:
 
@@ -66,13 +72,15 @@ Uses:
 * **Vertex AI embeddings**
 * **Groq API**
 
-🔹 5. PDF Survival Plan
+### 🔹 5. PDF Survival Plan
 
 Users can download a **72-hour action plan**.
 
+---
 
-🧭 Project Flow
+## 🧭 Project Flow
 
+```
 Landing Page
       ↓
 Onboarding (Language + City)
@@ -82,11 +90,13 @@ Login / Signup (Google + Email)
 Chat Interface (AI + RAG + Translation)
       ↓
 Download PDF Summary
+```
 
+---
 
-🖥️ UI Pages
+## 🖥️ UI Pages
 
-1️⃣ Landing Page
+### 1️⃣ Landing Page
 
 * Hero title
 * CTA buttons
@@ -99,23 +109,24 @@ Download PDF Summary
 * City input
 * Type of help needed
 
-3️⃣ Login / Signup
+### 3️⃣ Login / Signup
 
 * Google login
 * Username/password
 * Reset password
 
-4️⃣ Chat Page
+### 4️⃣ Chat Page
 
 * User ↔ AI chat bubbles
 * Agent status indicators
 * Guided step-by-step assistance
 * PDF download prompt
 
+---
 
-🤖 How the AI Works
+## 🤖 How the AI Works
 
-🟡 Step 1 — Classification
+### 🟡 Step 1 — Classification
 
 Detects:
 
@@ -123,7 +134,7 @@ Detects:
 * urgency
 * language
 
-🟢 Step 2 — RAG Retrieval
+### 🟢 Step 2 — RAG Retrieval
 
 Fetches:
 
@@ -131,16 +142,19 @@ Fetches:
 * food locations
 * emergency services
 
-🟡 Step 3 — Planning
+### 🟡 Step 3 — Planning
 
 Organizes into a **72-hour guide**.
 
-🟢 Step 4 — Delivery
+### 🟢 Step 4 — Delivery
 
 Shows as chat messages and optional PDF.
 
-🗂 Folder Structure
+---
 
+## 🗂 Folder Structure
+
+```
 /landing
    index.html
    styles.css
@@ -165,17 +179,20 @@ Shows as chat messages and optional PDF.
    models/
 
 README.md
+```
 
-🛠 Tech Stack
+---
 
-# Frontend
+## 🛠 Tech Stack
+
+### Frontend
 
 * HTML5
 * CSS3
 * Bootstrap 5
 * JavaScript
 
-# Backend / AI
+### Backend / AI
 
 * LangGraph
 * Retrieval-Augmented Generation (RAG)
@@ -183,32 +200,38 @@ README.md
 * Groq
 * WhatsApp Cloud API
 
+---
 
+## ▶ Setup / Usage
 
-▶ Setup / Usage
+### 1️⃣ Clone Repository
 
-1️⃣ Clone Repository
-
-
+```sh
 git clone https://github.com/your-username/refugee-first.git
+```
 
-2️⃣ Open Landing Page
+### 2️⃣ Open Landing Page
 
-
+```
 /landing/index.html
+```
 
-3️⃣ Setup Backend (optional)
+### 3️⃣ Setup Backend (optional)
 
 * Configure WhatsApp Cloud API
 * Create LangGraph pipelines
 * Add embeddings + RAG DB
 
-✍ Medium Article
+---
+
+## ✍ Medium Article
 
 Read the full blog here:
-🔗 [https://medium.com/@nikitamulam2005/refugee-first-72-hour-support-agent-building-a-multilingual-whatsapp-ai-for-refugee-support-24d4a33a953f](https://medium.com/@nikitamulam2005/refugee-first-72-hour-support-agent-building-a-multilingual-whatsapp-ai-for-refugee-support-24d4a33a953f)
+🔗 **[https://medium.com/@nikitamulam2005/refugee-first-72-hour-support-agent-building-a-multilingual-whatsapp-ai-for-refugee-support-24d4a33a953f](https://medium.com/@nikitamulam2005/refugee-first-72-hour-support-agent-building-a-multilingual-whatsapp-ai-for-refugee-support-24d4a33a953f)**
 
-🤝 Contributing
+---
+
+## 🤝 Contributing
 
 Contributions are welcome!
 Please ensure all updates follow:
@@ -217,7 +240,11 @@ Please ensure all updates follow:
 * No legal automation
 * No commercial misuse
 
-📜 License
+---
+
+## 📜 License
 
 ⚠ **Humanitarian Use Only**
 No legal, military, surveillance, or commercial usage.
+
+---
