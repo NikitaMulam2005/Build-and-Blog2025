@@ -5,7 +5,7 @@ A multilingual WhatsApp and web-based AI assistant that provides critical surviv
 
 ## Project Description
 
-Refugee First is a humanitarian AI system specifically designed to address the urgent needs of refugees and displaced persons during the most critical period—the first 72 hours after arrival in an unfamiliar city. The system provides immediate access to life-saving information including emergency shelter locations, food and water distribution points, medical facilities, safety guidelines, and local navigation assistance in multiple languages.
+When a refugee arrives in an unfamiliar city, the first 72 hours can be overwhelming. The Refugee First Support Agent provides immediate, multilingual guidance via WhatsApp or Web Chat, helping users navigate critical needs such as food, shelter, transport, and safety. By delivering step-by-step survival plans, city-specific checklists, emergency contacts, and directions to essential services, the agent ensures refugees can orient themselves quickly and stay safe. All responses are structured, privacy-conscious, and supported by human oversight for sensitive scenarios, giving newcomers the confidence and support they need to take their first steps in a new city.
 
 ## Technologies Used
 
