@@ -72,10 +72,10 @@ refugee-first/
 
 ## Demo
 
-**Live Demo**: [Insert your demo link here]
 **Video Demo**: [https://drive.google.com/file/d/1EvefO1SAihRdXT55CqyduXXM3emgixbw/view]
 
 ## Humanitarian Mission
 
 This project provides information only—no legal advice or government process automation. Strictly for humanitarian support of refugees and displaced persons.
+
 ```
