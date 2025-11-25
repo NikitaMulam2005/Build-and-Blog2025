@@ -1,10 +1,10 @@
-# 🌍 Refugee First – 72-Hour Support Agent
+# Refugee First – 72-Hour Support Agent
 
----
+A multilingual AI assistant that provides critical survival information to refugees during their first 72 hours in a new city through WhatsApp and web chat interfaces.
 
-**Refugee First – 72 Hour Support Agent** is a multilingual AI assistant designed to guide refugees during the **critical first 72 hours** after arriving in a new city. It provides shelter guidance, food & water help, basic safety instructions, local navigation, and multilingual conversation — all without automating government or legal processes.
+## Project Description
 
----
+Refugee First is a humanitarian AI system specifically designed to address the urgent needs of refugees and displaced persons during the most critical period—the first 72 hours after arrival in an unfamiliar city. The system provides immediate access to life-saving information including emergency shelter locations, food and water distribution points, medical facilities, safety guidelines, and local navigation assistance. By leveraging advanced AI technologies with multilingual support, we bridge the communication gap and deliver actionable survival information to vulnerable populations when they need it most.
 
 ## 🧩 System Architecture
 
@@ -51,154 +51,167 @@ sequenceDiagram
     WC-->>U: Download survival plan
 ```
 
-## ⚙️ Tech Stack
+## Technologies Used
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | HTML,CSS,React,Tailwind,Typescript, JavaScript |
-| Backend | FastAPI, LangGraph, RAG System |
-| AI/ML | Vertex AI Embeddings, Groq API |
-| Messaging | WhatsApp Cloud API |
-| Database | MongoDB |
-| Translation | Google Translate API |
-| Hosting | Render / Local Testing |
+- **Frontend**: React, TypeScript, Tailwind CSS, HTML5
+- **Backend**: FastAPI, Python 3.11+
+- **AI/ML**: LangGraph, Vertex AI Embeddings, Groq API
+- **Database**: MongoDB with geospatial indexing
+- **Messaging**: WhatsApp Cloud API for refugee communication
+- **Translation**: Google Translate API for multilingual support
+- **Hosting**: Google Cloud Run, Firebase Hosting
+- **Authentication**: Firebase Auth with multi-language UI
 
-## 🚀 Key Features
+## How It Works / Architecture
 
-### 🔹 Multilingual Support
-Arabic • Farsi • Hindi • Marathi • Urdu • English • French • Ukrainian • Tamil •
+The system operates through a structured pipeline:
 
-### 🔹 Dual Interface
-- **WhatsApp Integration** - Instant messaging via familiar platform
-- **Web Chat Portal** - Full-featured web interface
+1. **User Input**: Refugees send messages via WhatsApp or web chat in their native language (Arabic, Farsi, Hindi, Urdu, English, French, Ukrainian, Tamil, Marathi)
 
-### 🔹 Intelligent Assistance
-- **Local Aid Retrieval** - Find nearby shelters, food banks, emergency centers
-- **72-Hour Survival Planning** - Step-by-step guidance for critical period
-- **Safe AI System** - No legal or government process automation
+2. **Language Processing**: System detects language and translates to English for processing
 
-### 🔹 Practical Outputs
-- **Real-time Chat Guidance** - Interactive multilingual conversation
-- **PDF Survival Plan** - Downloadable 72-hour action plan
+3. **AI Analysis**: LangGraph agent analyzes the request, identifies urgency level, and determines required assistance type
 
-## 🧪 Installation & Setup
+4. **Location-Based Retrieval**: RAG system with Vertex AI embeddings searches localized databases for:
+   - Emergency shelters and temporary housing
+   - Food banks and water distribution points
+   - Medical facilities and emergency services
+   - Legal aid and community support centers
 
-### 1. Clone the Repository
+5. **72-Hour Planning**: AI generates a customized 72-hour survival plan prioritizing:
+   - Immediate needs (shelter, food, safety)
+   - Medium-term requirements (documentation, healthcare)
+   - Long-term orientation (community integration, support networks)
+
+6. **Multilingual Delivery**: Responses are translated back to the user's language and delivered through their preferred channel
+
+## Installation / Setup Instructions
+
+### Prerequisites
+- Python 3.11+
+- Node.js 18+
+- MongoDB database
+- Google Cloud Project with Vertex AI enabled
+- WhatsApp Business API account
+
+### Backend Setup
 ```bash
 git clone https://github.com/your-username/refugee-first.git
-cd refugee-first
-```
+cd refugee-first/backend
 
-### 2. Backend Setup
-```bash
-cd backend
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Set environment variables
+export MONGODB_URI="your_mongodb_connection_string"
+export GOOGLE_APPLICATION_CREDENTIALS="path/to/service-account.json"
+export GROQ_API_KEY="your_groq_api_key"
+export WHATSAPP_TOKEN="your_whatsapp_business_token"
+
+# Start backend server
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 3. Frontend Setup
-Open the landing page directly in your browser:
+### Frontend Setup
 ```bash
-open landing/index.html
+cd ../frontend
+npm install
+npm start
 ```
 
-### 4. WhatsApp Integration (Optional)
-1. Configure WhatsApp Cloud API credentials
-2. Set up webhook endpoints in backend
-3. Test messaging flow with sample numbers
+### Database Initialization
+```bash
+# Import initial refugee support data
+python scripts/import_shelters.py
+python scripts/import_food_banks.py
+python scripts/import_medical_centers.py
+```
 
-## 📱 Usage Flow
+## Usage / Example
 
-### Web Portal
-1. **Landing Page** → Learn about the service
-2. **Onboarding** → Select language & location
-3. **Authentication** → Login/Signup (Google/Email)
-4. **Chat Interface** → Get AI-powered assistance
-5. **PDF Export** → Download survival plan
+### Food and Water Request (Hindi):
+```
+👤 User: "भूख लगी है, खाना चाहिए"
 
-### WhatsApp
-1. **Save Contact** → Add Refugee First number
-2. **Start Chat** → Send message in any supported language
-3. **Automatic Detection** → System detects language and location
-4. **Interactive Guidance** → Receive step-by-step support
-5. **Resource Links** → Get localized aid information
+🤖 Refugee First: "नमस्ते! आपके निकटतम भोजन वितरण केंद्र:
 
-## 🗂️ Project Structure
+🍞 अन्नक्षेत्र भोजनालय - 0.5 किमी (अभी खुला)
+🍎 सामुदायिक रसोई - 1.2 किमी
+💧 पेयजल स्टेशन - 0.3 किमी
+
+तत्काल सहायता:
+1. पहले पानी लें
+2. निकटतम भोजन केंद्र पर जाएं
+3. यदि अस्वस्थ हैं तो चिकित्सक से मिलें
+
+क्या आप विशिष्ट दिशा-निर्देश चाहते हैं?"
+```
+
+## File Structure
 
 ```
 refugee-first/
-├── landing/                 # Landing page
-│   ├── index.html
-│   ├── styles.css
-│   └── script.js
-├── onboarding/              # User onboarding flow
-│   └── onboarding.html
-├── auth/                    # Authentication pages
-│   ├── login.html
-│   └── signup.html
-├── chat/                    # Main chat interface
-│   ├── chat.html
-│   ├── chat.css
-│   └── chat.js
-├── backend/                 # API and AI services
-│   ├── agents/              # LangGraph agents
-│   ├── rag/                 # Retrieval system
-│   ├── whatsapp/            # WhatsApp integration
-│   ├── models/              # Data models
-│   └── main.py              # FastAPI application
-└── docs/                    # Documentation
-    ├── LICENSE.md
-    └── API.md
+├── backend/
+│   ├── main.py                 # FastAPI application entry point
+│   ├── agents/
+│   │   ├── refugee_agent.py    # LangGraph agent implementation
+│   │   └── emergency_classifier.py
+│   ├── rag/
+│   │   ├── retrieve.py         # RAG retrieval system
+│   │   ├── vector_store.py     # Vector database management
+│   │   └── data_sources/       # Local aid database
+│   ├── whatsapp/
+│   │   └── webhook.py          # WhatsApp message handling
+│   ├── translation/
+│   │   └── multilingual.py     # Language translation services
+│   └── models/
+│       ├── user_models.py      # User data models
+│       └── aid_models.py       # Aid resource models
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ChatInterface.jsx
+│   │   │   ├── LanguageSelector.jsx
+│   │   │   └── EmergencyResources.jsx
+│   │   ├── pages/
+│   │   │   ├── Landing.jsx
+│   │   │   ├── Onboarding.jsx
+│   │   │   └── Dashboard.jsx
+│   │   └── utils/
+│   │       ├── api.js
+│   │       └── translation.js
+│   └── public/
+│       ├── index.html
+│       └── manifest.json
+├── database/
+│   ├── init_db.py              # Database initialization
+│   └── sample_data/            # Refugee support resources
+├── docs/
+│   ├── API.md
+│   └── DEPLOYMENT.md
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
 ```
 
-## 🤖 How the AI Works
+## Live Demo
 
-### 🟡 Step 1 — Classification
-- Detects user's city and current location
-- Assesses urgency level of situation
-- Identifies primary language
+**Web Portal**: [https://refugee-first.web.app](https://refugee-first.web.app)  
+**Demo Video**: [https://drive.google.com/file/d/1EvefO1SAihRdXT55CqyduXXM3emgixbw/view](https://drive.google.com/file/d/1EvefO1SAihRdXT55CqyduXXM3emgixbw/view)
 
-### 🟢 Step 2 — RAG Retrieval
-- Searches local aid databases
-- Finds nearest shelters and food distribution
-- Identifies emergency services
+## Humanitarian Focus
 
-### 🟡 Step 3 — Planning
-- Organizes information into 72-hour timeline
-- Prioritizes immediate needs (shelter, food, safety)
-- Creates actionable steps
+This project strictly adheres to humanitarian principles:
+- Provides information only, no automation of legal/government processes
+- Respects user privacy and data protection
+- Supports vulnerable populations without commercial motives
+- Multilingual accessibility for true inclusion
+- No military, surveillance, or commercial usage permitted
 
-### 🟢 Step 4 — Delivery
-- Presents information via chat interface
-- Offers PDF download option
-- Maintains conversation context
+## License
 
-## 🌐 Live Demo
-
-**Web Portal:** [Try It Live](https://your-deployment-link.vercel.app)  
-**Demo Video:** [Watch Overview](https://drive.google.com/file/d/1EvefO1SAihRdXT55CqyduXXM3emgixbw/view?usp=sharing)
-
-## 🛡️ Safety & Ethics
-
-- ✅ Provides information only, no automation of legal processes
-- ✅ Respects user privacy and data protection
-- ✅ Humanitarian focus only
-- ❌ No government or legal advice
-- ❌ No commercial data usage
-- ❌ No surveillance capabilities
-
-## 🤝 Contributing
-
-We welcome contributions that align with our humanitarian mission. Please ensure all updates follow:
-
-- Humanitarian guidelines and principles
-- No legal process automation
-- No commercial misuse
-- Multilingual accessibility
-
-## 📜 License
-
-This project is licensed under the **Humanitarian Use Only** license.  
-See the [LICENSE.md](LICENSE.md) file for details.
-
----
+Humanitarian Use License - See LICENSE.md for details
