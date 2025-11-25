@@ -1,8 +1,5 @@
 # 🌍 Refugee First – 72-Hour Support Agent
 
-**"Understand Before You Accept."**  
-*Built by Nikita Mulam for Humanitarian Support*
-
 ---
 
 **Refugee First – 72 Hour Support Agent** is a multilingual AI assistant designed to guide refugees during the **critical first 72 hours** after arriving in a new city. It provides shelter guidance, food & water help, basic safety instructions, local navigation, and multilingual conversation — all without automating government or legal processes.
@@ -58,7 +55,7 @@ sequenceDiagram
 
 | Layer | Technology |
 |-------|------------|
-| Frontend | HTML5, CSS3, Bootstrap 5, JavaScript |
+| Frontend | HTML,CSS,React,Tailwind,Typescript, JavaScript |
 | Backend | FastAPI, LangGraph, RAG System |
 | AI/ML | Vertex AI Embeddings, Groq API |
 | Messaging | WhatsApp Cloud API |
@@ -69,7 +66,7 @@ sequenceDiagram
 ## 🚀 Key Features
 
 ### 🔹 Multilingual Support
-Arabic • Farsi • Hindi • Urdu • English • French • Ukrainian
+Arabic • Farsi • Hindi • Marathi • Urdu • English • French • Ukrainian • Tamil •
 
 ### 🔹 Dual Interface
 - **WhatsApp Integration** - Instant messaging via familiar platform
